@@ -34,7 +34,8 @@ public class CuotaServicio
 
             cuota.setInteres(cuotaAnterior.getSaldo() * prestamo.getInteres());
 
-            cuota.setCapital(prestamo.getCuota()- cuota.getInteres());
+            //cuota.setCapital(prestamo.getCuota()- cuota.getInteres()); Valores negativos?
+            cuota.setCapital(cuota.getInteres() - prestamo.getCuota());
 
             cuota.setSaldo(cuotaAnterior.getSaldo() - cuota.getCapital());
 

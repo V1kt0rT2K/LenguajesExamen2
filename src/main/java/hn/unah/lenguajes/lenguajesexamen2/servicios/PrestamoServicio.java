@@ -48,10 +48,11 @@ public class PrestamoServicio
         {
             if(this.prestamoRepositorio.countByCliente(this.clienteRepositorio.findById(dni).get()) <= 2)
             {
-                this.cuotaServicio.generarRegistroCuota(prestamo);
-                prestamo.setCliente(this.clienteRepositorio.findById(dni).get());
 
+                prestamo.setCliente(this.clienteRepositorio.findById(dni).get());
                 prestamo.setCuota(PrestamoServicio.calcularCuota(prestamo));
+
+                this.cuotaServicio.generarRegistroCuota(prestamo);
 
                 return this.prestamoRepositorio.save(prestamo);
             }
